@@ -1,1 +1,3 @@
-var trial = 'dumb'  ;
+const trial = "dumb";
+
+console.log(trial)
