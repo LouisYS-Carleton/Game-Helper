@@ -1,3 +1,12 @@
-const trial = 'dumb'
+const express = require('express')
 
-console.log(trial)
+const PORT = process.env.PORT || 3000
+
+const app = express()
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.static('public'))
+
+app.listen(PORT, function () {
+    console.log('Listening on port: ' + PORT)
+  })
