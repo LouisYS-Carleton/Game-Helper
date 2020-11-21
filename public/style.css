@@ -1,0 +1,49 @@
+/* Navbar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #24252a;
+}
+
+li,
+a,
+button,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  padding: 20px;
+  width: 100px;
+  font-variant: small-caps;
+  text-decoration: none;
+}
+
+button {
+  padding: 9px 25px;
+  background: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background: rgba(0, 136, 169, 0.8);
+}
+/*  */
