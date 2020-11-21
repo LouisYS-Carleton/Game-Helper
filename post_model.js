@@ -1,4 +1,5 @@
-import { Sequelize } from '/index.js'
+import { Sequelize } from '/index.js';
+const bcrypt = require('bcryptjs')
 
 //this should set up the user table
 module.exports = function (sequelize, DataTypes) {
@@ -10,26 +11,31 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
-        username: {
+        email: {
             type: sequelize.STRING,
             allowNull: false,
             unique: true,
+            validate: {
+                isEmail: true
+            }
         },
         hashedPassword: {
             type: Sequelize.STRING(64),
             allowNull: false
         }
     });
-    User.beforeCreate(user, options) => {
-        const salt = bcrypt.createSaltSync();
-        user.password = bcrypt.hashSync(user.password, salt);
-    };
+    User.addHook('beforeCreate', function (user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
+      })
+      return User
+    }
     User.prototype.validPassword = function(password){
         return bcrypt.compareSync(password, this.password)
     }
 
     // create all defined tables
     sequelize.sync()
-    .then(() => console.log('User table has been created'))
-    .catch(error => console.log('Error Ocurred', error));
+        .then(() => console.log('User table has been created'))
+        .catch(error => console.log('Error Ocurred', error));
+    
 }
