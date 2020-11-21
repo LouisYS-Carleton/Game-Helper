@@ -1,0 +1,23 @@
+
+   
+<h1 id="welcomeMessage">Welcome to Game-helper</h1>
+<h3 id="loginInfo">Login Into Your Personal Account</h3>
+{{#if message}}
+<form action="/users/login" method="POST">
+    {{#each loginUser}}
+    <div class="form-group">
+        <input type="hidden" name="Username" value= {{{loginUser}}}>
+    </div>
+    <div class="form-group">
+        {{password_validation "password" "" errors}}
+    </div>
+    <div class="form-group">
+        <label class="form-check-label">
+        {{checkbox_validation "title" 1 false errors}} <p>Remember me</p>  {{!--Please check the correct checkbox 'note' if it is in the correct syntax--}}
+    </div>
+    {{button "save" "Login"}}
+    {{/each}}
+</form>
+<p class="lead mt-4">No Account?<a href="/users/register"> Register</a></p>
+
+
