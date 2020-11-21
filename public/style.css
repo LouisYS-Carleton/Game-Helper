@@ -16,6 +16,10 @@ h2 {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -27,6 +31,7 @@ header {
   padding: 20px;
   width: 100px;
   font-variant: small-caps;
+  text-decoration: none;
 }
 
 button {
