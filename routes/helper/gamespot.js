@@ -38,15 +38,12 @@ async function formatGamespotResults(results) {
   const releaseApiUrls = []
   for (const game of results) {
     const formattedGame = formatGame(game)
-    const results = await Promise.all([
-      getImages(game.images_api_url),
-      getPlatforms(game.releases_api_url),
-    ])
-    formattedGame.platform = formatReleases(results[1].data)
-    formattedGame.Images = formatImages(results[0].data)
+    // pushing the urls to an array in order to use in Promise.all
+    imageApiUrls.push(game.images_api_url)
+    releaseApiUrls.push(game.releases_api_url)
     formattedGames.push(formattedGame)
   }
-  return formattedGames
+  return await addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls)
 }
 
 function formatGame(game) {
@@ -58,18 +55,42 @@ function formatGame(game) {
   }
 }
 
-async function getImages(imageApiUrl) {
-  const images = await axios.get(
-    imageApiUrl + `&api_key=${API_KEY}&format=json`
-  )
-  return images
+async function addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls) {
+  // Firing off promises for all images and all releases
+  const addedData = await Promise.all([
+    getImages(imageApiUrls),
+    getPlatforms(releaseApiUrls),
+  ])
+  const [images, releases] = addedData
+  // Matching images and releases to their related game
+  // Since images and releases ordered by game, can access data at same index
+  for (let i = 0; i < formattedGames.length; i++) {
+    formattedGames[i].platform = formatReleases(releases[i].data)
+    formattedGames[i].Images = formatImages(images[i].data)
+  }
+  return formattedGames
 }
 
-async function getPlatforms(releaseApiUrl) {
-  const releases = await axios.get(
-    releaseApiUrl + `&api_key=${API_KEY}&format=json`
-  )
-  return releases
+// Turning array of image promises into a single Promise.all
+// To be resolved in addAdditionalInfo
+async function getImages(imageApiUrls) {
+  const imagePromises = []
+  for (const url of imageApiUrls) {
+    imagePromises.push(
+      axios.get(url + `&api_key=${API_KEY}&limit=3&format=json`)
+    )
+  }
+  return Promise.all(imagePromises)
+}
+
+// Turning array of release promises into a single Promise.all
+// To be resolved in addAdditionalInfo
+async function getPlatforms(releaseApiUrls) {
+  const releasePromises = []
+  for (const url of releaseApiUrls) {
+    releasePromises.push(axios.get(url + `&api_key=${API_KEY}&format=json`))
+  }
+  return Promise.all(releasePromises)
 }
 
 function formatImages(images) {
