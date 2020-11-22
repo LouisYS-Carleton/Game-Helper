@@ -47,3 +47,182 @@ button:hover {
   background: rgba(0, 136, 169, 0.8);
 }
 /*  */
+
+/* Cards */
+.card-title {
+  margin-bottom: 1rem;
+  font-family: Raleway;
+  font-weight: 900;
+}
+
+#unowned-games-cards {
+  margin: 20px;
+}
+
+#card-game-title {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+}
+
+#card-text {
+  padding: 20px;
+  padding-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#card-text-desc {
+  padding-bottom: 10px;
+}
+
+#card-desc-title {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+}
+
+#description-card {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+}
+
+#card-text-info {
+  margin-left: 0px;
+}
+
+#card-genre-title {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+#all-info-cards {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+#platform-title {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+#release-date-title {
+  background-color: #24262a;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+#game-picture-row {
+  padding: 20px;
+  padding-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#game-img {
+  height: 140px;
+  margin-top: 10px;
+}
+
+#button-row {
+  margin: 30px;
+  margin-bottom: 10px;
+}
+
+#add-btn {
+  color: rgb(255, 255, 255);
+  border: thin solid white;
+}
+
+#delete-btn {
+  color: rgb(255, 255, 255);
+  border: thin solid rgb(255, 255, 255);
+}
+/*  */
+
+/* Current Games Column */
+#current-games-col {
+  border: solid thin white;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#current-games-col-title {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+/*  */
+
+/* Upcoming Games */
+#upcoming-games-col {
+  border: solid thin white;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#upcoming-games-title {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+/*  */
+
+/* Owned Games */
+#owned-games-col {
+  border: solid thin white;
+  height: 350px;
+  overflow-y: scroll;
+}
+
+#owned-games-title {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+#owned-games-row {
+  margin: 5px;
+}
+
+#owned-games-cards {
+  height: 275px;
+  width: 250px;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+#owned-games-game-title {
+  color: white;
+  padding: 5px;
+  padding-bottom: 0px;
+}
+
+#owned-img-btn-row {
+  padding: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#img-owned {
+  height: 127px;
+}
+
+#btns-owned {
+  color: rgb(251, 38, 0);
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+/*  */
