@@ -34,6 +34,8 @@ async function getUpcomingGames() {
 // Helper functions for handling and formatting game data
 async function formatGamespotResults(results) {
   const formattedGames = []
+  const imageApiUrls = []
+  const releaseApiUrls = []
   for (const game of results) {
     const formattedGame = formatGame(game)
     const results = await Promise.all([
