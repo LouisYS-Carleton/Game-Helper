@@ -24,7 +24,11 @@ async function getUpcomingGames() {
       '&limit=10' +
       '&format=json'
   )
-  return await formatGamespotResults(gamespotData.data.results)
+  const formattedGames = await formatGamespotResults(gamespotData.data.results)
+  return formattedGames.map((game) => {
+    game.upcoming = true
+    return game
+  })
 }
 
 // Helper functions for handling and formatting game data
