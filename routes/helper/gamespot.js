@@ -93,6 +93,7 @@ async function getPlatforms(releaseApiUrls) {
   return Promise.all(releasePromises)
 }
 
+// Formating image data to take 3 images from the list
 function formatImages(images) {
   if (images.number_of_page_results > 0) {
     const imageList = []
@@ -107,6 +108,7 @@ function formatImages(images) {
   }
 }
 
+// Formating release data to return all the platforms of the game
 function formatReleases(releases) {
   const platforms = []
   if (releases.number_of_page_results > 0) {
