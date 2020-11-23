@@ -1,3 +1,23 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+  const addButtons = document.querySelectorAll('.add-btn')
+  for (const button of addButtons) {
+    button.addEventListener('click', addGame)
+  }
+})
+
+function addGame(event) {
+  const gameInfo = getGameInfo(event.target)
+  fetch('/api/games', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(gameInfo),
+  }).then(function (response) {
+    window.location.reload()
+  })
+}
+
 function getGameInfo(target) {
   const apiId = target.dataset.id
   const currentCard = target.closest('.card')
