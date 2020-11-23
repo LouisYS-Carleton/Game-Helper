@@ -49,6 +49,10 @@ button:hover {
 /*  */
 
 /* Cards */
+#title {
+  background-color: #2f2e2e;
+}
+
 .card-title {
   margin-bottom: 1rem;
   font-family: Raleway;
@@ -70,51 +74,54 @@ button:hover {
   padding-bottom: 5px;
   margin-left: 0px;
   margin-right: 0px;
+  background-color: #2f2e2e;
 }
 
 #card-text-desc {
   padding-bottom: 10px;
+  background-color: #2f2e2e;
 }
 
 #card-desc-title {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
 }
 
 #description-card {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
 }
 
 #card-text-info {
   margin-left: 0px;
+  background-color: #2f2e2e;
 }
 
 #card-genre-title {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
   margin-left: 15px;
 }
 
 #all-info-cards {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
   margin-left: 15px;
 }
 
 #platform-title {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
   margin-left: 15px;
 }
 
 #release-date-title {
-  background-color: #24262a;
+  background-color: #2f2e2e;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
   margin-left: 15px;
@@ -125,16 +132,19 @@ button:hover {
   padding-bottom: 5px;
   margin-left: 0px;
   margin-right: 0px;
+  background-color: #2f2e2e;
 }
 
 #game-img {
   height: 140px;
   margin-top: 10px;
+  background-color: #2f2e2e;
 }
 
 #button-row {
   margin: 30px;
   margin-bottom: 10px;
+  background-color: #2f2e2e;
 }
 
 #add-btn {
@@ -145,6 +155,14 @@ button:hover {
 #delete-btn {
   color: rgb(255, 255, 255);
   border: thin solid rgb(255, 255, 255);
+}
+
+#info-col {
+  background-color: #2f2e2e;
+}
+
+#-col {
+  background-color: #2f2e2e;
 }
 /*  */
 
@@ -160,6 +178,11 @@ button:hover {
   margin: 5px;
   padding: 5px;
 }
+
+#btn-block {
+  background-color: #2f2e2e;
+}
+
 /*  */
 
 /* Upcoming Games */
@@ -205,6 +228,7 @@ button:hover {
   color: white;
   padding: 5px;
   padding-bottom: 0px;
+  background-color: #2f2e2e;
 }
 
 #owned-img-btn-row {
@@ -213,6 +237,7 @@ button:hover {
   padding-top: 5px;
   margin-left: 0px;
   margin-right: 0px;
+  background-color: #2f2e2e;
 }
 
 #img-owned {
@@ -220,7 +245,7 @@ button:hover {
 }
 
 #btns-owned {
-  color: rgb(251, 38, 0);
+  color: rgb(255, 255, 255);
   padding: 10px;
   margin-bottom: 5px;
   margin-top: 10px;
