@@ -145,9 +145,10 @@ button:hover {
   background-color: #2f2e2e;
 }
 
-.add-btn {
+button.add-btn {
   color: rgb(255, 255, 255);
   border: thin solid white;
+  background-color: rgb(8, 61, 117);
 }
 
 .delete-btn {
