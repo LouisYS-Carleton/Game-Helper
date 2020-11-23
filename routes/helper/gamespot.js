@@ -1,14 +1,14 @@
 const axios = require('axios')
 const moment = require('moment')
 const API_KEY = process.env.API_KEY
-const currentDate = moment().format('YYYY-MM-DD')
 
 // Current games
 async function getCurrentGames() {
+  const today = moment().format('YYYY-MM-DD')
   const lastYear = moment().subtract(1, 'years').format('YYYY-MM-DD')
   const gamespotData = await axios.get(
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
-      `&filter=release_date:${lastYear}|${currentDate}` +
+      `&filter=release_date:${lastYear}|${today}` +
       '&limit=10' +
       '&format=json'
   )
@@ -17,10 +17,14 @@ async function getCurrentGames() {
 
 // Upcoming games
 async function getUpcomingGames() {
-  const nextYear = moment().add(1, 'years').format('YYYY-MM-DD')
+  const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD')
+  const tomorrowNextYear = moment()
+    .add(1, 'days')
+    .add(1, 'years')
+    .format('YYYY-MM-DD')
   const gamespotData = await axios.get(
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
-      `&filter=release_date:${currentDate}|${nextYear}` +
+      `&filter=release_date:${tomorrow}|${tomorrowNextYear}` +
       '&limit=10' +
       '&format=json'
   )
