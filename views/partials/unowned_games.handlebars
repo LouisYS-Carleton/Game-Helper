@@ -54,20 +54,24 @@
     </div>
     {{!--  --}}
 
+    {{#unless upcoming}}
     <div class="card-block" id='btn-block'>
         <div class="row" id='button-row'>
+            {{#unless owned}}
             <div class="col" id='buttons-unowned-cards'>
                 <button href="#" class="btn btn-block btn-lg btn-primary" id='add-btn'>
                     Add
                 </button>
             </div>
-
+            {{else}}
             <div class="col" id='buttons-unowned-cards'>
                 <button href="#" class="btn  btn-block btn-lg btn-danger" id='delete-btn'>
                     Delete
                 </button>
             </div>
+            {{/unless}}
         </div>
     </div>
+    {{/unless}}
 </div>
 {{!--  --}}
