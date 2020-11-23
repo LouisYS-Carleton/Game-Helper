@@ -1,7 +1,7 @@
-<div class="card" class="unowned-games-cards">
+<div class="card unowned-games-cards">
     {{!-- Game title --}}
     <div class="card-block title">
-        <h3 class="card-title text-center card-game-title">Destiny 2
+        <h3 class="card-title text-center card-game-title">{{name}}
         </h3>
     </div>
     {{!--  --}}
@@ -11,28 +11,25 @@
                 Description:
             </h5>
             <p class='description-card'>
-                Similar to its predecessor, Destiny 2 is a first-person shooter game that incorporates
-                role-playing and massively multiplayer online game (MMO) elements. The original Destiny
-                includes on-the-fly matchmaking that allowed players to communicate only with other players
-                with whom they were "matched" by the game.
+                {{description}}
             </p>
         </div>
         <div class='col-md-6 info-col'>
             <div class="row card-text-info">
                 <h5 class='card-genre-title'>
-                    Genre:
+                    Genre(s):
                 </h5>
                 <p class='all-info-cards'>
-                    Shooter
+                    {{genres}}
                 </p>
             </div>
 
             <div class="row card-text-info">
                 <h5 class='platform-title'>
-                    Platform:
+                    Platform(s):
                 </h5>
                 <p class='all-info-cards'>
-                    Playstation 4
+                    {{platforms}}
                 </p>
             </div>
             <div class="row card-text-info">
@@ -40,7 +37,7 @@
                     Release Date:
                 </h5>
                 <p class='all-info-cards'>
-                    Aug. 23, 2002
+                    {{releaseDate}}
                 </p>
             </div>
         </div>
@@ -48,32 +45,32 @@
 
     {{!-- Game Picture --}}
     <div class="row game-picture-row">
+        {{#each Images}}
         <div class="col-md-4 game-img-col">
-            <img src="/images/game example.png" alt="" class='game-img'>
+            <img src="{{url}}" alt="" class='game-img'>
         </div>
-        <div class="col-md-4 game-img-col">
-            <img src="/images/game example.png" alt="" class='game-img'>
-        </div>
-        <div class="col-md-4 game-img-col">
-            <img src="/images/game example.png" alt="" class='game-img'>
-        </div>
+        {{/each}}
     </div>
     {{!--  --}}
 
+    {{#unless upcoming}}
     <div class="card-block btn-block">
         <div class="row button-row">
+            {{#unless owned}}
             <div class="col buttons-unowned-cards">
                 <button href="#" class="btn btn-block btn-lg btn-primary add-btn">
                     Add
                 </button>
             </div>
-
+            {{else}}
             <div class="col buttons-unowned-cards">
                 <button href="#" class="btn  btn-block btn-lg btn-danger delete-btn">
                     Delete
                 </button>
             </div>
+            {{/unless}}
         </div>
     </div>
+    {{/unless}}
 </div>
 {{!--  --}}

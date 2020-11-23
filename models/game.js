@@ -12,11 +12,17 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    platform: {
+    platforms: {
       type: DataTypes.STRING,
     },
     description: {
       type: DataTypes.STRING,
+    },
+    genres: {
+      type: DataTypes.STRING,
+    },
+    owned: {
+      type: DataTypes.BOOLEAN,
     },
   })
 
