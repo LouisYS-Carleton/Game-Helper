@@ -25,10 +25,7 @@ async function getUpcomingGames() {
       '&format=json'
   )
   const formattedGames = await formatGamespotResults(gamespotData.data.results)
-  return formattedGames.map(function (game) {
-    game.upcoming = true
-    return game
-  })
+  return formattedGames.map(markUpcoming)
 }
 
 // Helper functions for handling and formatting game data
@@ -58,6 +55,11 @@ function formatGame(game) {
     description: game.deck,
     genres: genres.join(', '),
   }
+}
+
+function markUpcoming(game) {
+  game.upcoming = true
+  return game
 }
 
 async function addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls) {
