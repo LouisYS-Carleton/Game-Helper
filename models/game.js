@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    platform: {
+    platforms: {
       type: DataTypes.STRING,
     },
     description: {
