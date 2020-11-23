@@ -151,9 +151,10 @@ button.add-btn {
   background-color: rgb(8, 61, 117);
 }
 
-.delete-btn {
+button.delete-btn {
   color: rgb(255, 255, 255);
   border: thin solid rgb(255, 255, 255);
+  background-color: rgb(117, 16, 26);
 }
 
 .info-col {
