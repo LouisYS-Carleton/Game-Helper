@@ -69,7 +69,7 @@ async function addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls) {
 
 // Turning array of image promises into a single Promise.all
 // To be resolved in addAdditionalInfo
-async function getImages(imageApiUrls) {
+function getImages(imageApiUrls) {
   const imagePromises = []
   for (const url of imageApiUrls) {
     imagePromises.push(
@@ -81,7 +81,7 @@ async function getImages(imageApiUrls) {
 
 // Turning array of release promises into a single Promise.all
 // To be resolved in addAdditionalInfo
-async function getPlatforms(releaseApiUrls) {
+function getPlatforms(releaseApiUrls) {
   const releasePromises = []
   for (const url of releaseApiUrls) {
     releasePromises.push(axios.get(url + `&api_key=${API_KEY}&format=json`))
