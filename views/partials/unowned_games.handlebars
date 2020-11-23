@@ -1,7 +1,7 @@
 <div class="card unowned-games-cards">
     {{!-- Game title --}}
     <div class="card-block title">
-        <h3 class="card-title text-center card-game-title">{{name}}
+        <h3 class="card-title text-center card-game-title name">{{name}}
         </h3>
     </div>
     {{!--  --}}
@@ -10,7 +10,7 @@
             <h5 class='card-desc-title'>
                 Description:
             </h5>
-            <p class='description-card'>
+            <p class='description-card description'>
                 {{description}}
             </p>
         </div>
@@ -19,7 +19,7 @@
                 <h5 class='card-genre-title'>
                     Genre(s):
                 </h5>
-                <p class='all-info-cards'>
+                <p class='all-info-cards genres'>
                     {{genres}}
                 </p>
             </div>
@@ -28,7 +28,7 @@
                 <h5 class='platform-title'>
                     Platform(s):
                 </h5>
-                <p class='all-info-cards'>
+                <p class='all-info-cards platforms'>
                     {{platforms}}
                 </p>
             </div>
@@ -36,7 +36,7 @@
                 <h5 class='release-date-title'>
                     Release Date:
                 </h5>
-                <p class='all-info-cards'>
+                <p class='all-info-cards release-date'>
                     {{releaseDate}}
                 </p>
             </div>
@@ -44,7 +44,7 @@
     </div>
 
     {{!-- Game Picture --}}
-    <div class="row game-picture-row">
+    <div class="row game-picture-row images">
         {{#each Images}}
         <div class="col-md-4 game-img-col">
             <img src="{{url}}" alt="" class='game-img'>
@@ -58,13 +58,13 @@
         <div class="row button-row">
             {{#unless owned}}
             <div class="col buttons-unowned-cards">
-                <button href="#" class="btn btn-block btn-lg btn-primary add-btn">
+                <button href="#" class="btn btn-block btn-lg btn-primary add-btn" data-id="{{apiId}}">
                     Add
                 </button>
             </div>
             {{else}}
             <div class="col buttons-unowned-cards">
-                <button href="#" class="btn  btn-block btn-lg btn-danger delete-btn">
+                <button href="#" class="btn  btn-block btn-lg btn-danger delete-btn" data-apiId="{{id}}">
                     Delete
                 </button>
             </div>
