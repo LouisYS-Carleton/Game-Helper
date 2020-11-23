@@ -3,7 +3,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
   for (const button of addButtons) {
     button.addEventListener('click', addGame)
   }
+
+  const deleteButtons = document.querySelectorAll('.delete-btn')
+  for (const button of deleteButtons) {
+    button.addEventListener('click', function (event) {
+      const id = this.dataset.id
+      deleteGame(id)
+    })
+  }
 })
+
+function deleteGame(id) {
+  fetch(`/api/games/${id}`, {
+    method: 'DELETE',
+  }).then(function (response) {
+    window.location.reload()
+  })
+}
 
 function addGame(event) {
   const gameInfo = getGameInfo(event.target)
