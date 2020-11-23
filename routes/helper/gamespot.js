@@ -70,7 +70,7 @@ async function addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls) {
   // Matching images and releases to their related game
   // Since images and releases ordered by game, can access data at same index
   for (let i = 0; i < formattedGames.length; i++) {
-    formattedGames[i].platform = formatReleases(releases[i].data)
+    formattedGames[i].platforms = formatReleases(releases[i].data)
     formattedGames[i].Images = formatImages(images[i].data)
   }
   return formattedGames
