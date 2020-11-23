@@ -23,6 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     owned: {
       type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   })
 
