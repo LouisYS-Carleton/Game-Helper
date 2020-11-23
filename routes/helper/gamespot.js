@@ -12,7 +12,7 @@ async function getCurrentGames() {
       '&limit=10' +
       '&format=json'
   )
-  return await formatGamespotResults(gamespotData.data.results)
+  return formatGamespotResults(gamespotData.data.results)
 }
 
 // Upcoming games
@@ -24,11 +24,7 @@ async function getUpcomingGames() {
       '&limit=10' +
       '&format=json'
   )
-  const formattedGames = await formatGamespotResults(gamespotData.data.results)
-  return formattedGames.map((game) => {
-    game.upcoming = true
-    return game
-  })
+  return formatGamespotResults(gamespotData.data.results)
 }
 
 // Helper functions for handling and formatting game data
@@ -43,7 +39,7 @@ async function formatGamespotResults(results) {
     releaseApiUrls.push(game.releases_api_url)
     formattedGames.push(formattedGame)
   }
-  return await addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls)
+  return addAdditionalInfo(formattedGames, imageApiUrls, releaseApiUrls)
 }
 
 function formatGame(game) {
