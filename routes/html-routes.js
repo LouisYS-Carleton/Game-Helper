@@ -13,12 +13,25 @@ router.get('/', async function (req, res) {
     ])
     const [currentGames, upcomingGames, ownedGames] = results
     markOwned(currentGames, ownedGames)
-    res.status(200).render('home', { currentGames, upcomingGames, ownedGames })
+    res.status(200).render('home', {
+      currentGames,
+      upcomingGames,
+      ownedGames: formatOwnedGames(ownedGames),
+    })
   } catch (err) {
     console.log(err)
     res.status(401).json({ error: err })
   }
 })
+
+function formatOwnedGames(ownedGames) {
+  return ownedGames.map((game) => {
+    game.dataValues.Images = game.dataValues.Images.map(
+      (image) => image.dataValues
+    )
+    return game.dataValues
+  })
+}
 
 function markOwned(currentGames, ownedGames) {
   for (const game of currentGames) {
