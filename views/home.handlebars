@@ -31,8 +31,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6" id='current-games-col'>
-            <h2 id='current-games-col-title'>
+        <div class="col-md-6 current-games-col">
+            <h2 class='current-games-col-title'>
                 Current Games
             </h2>
 
@@ -43,10 +43,10 @@
             {{!--  --}}
         </div>
 
-        <div class="col-md-6" id='upcoming-games-col'>
+        <div class="col-md-6 upcoming-games-col">
             <div class="square-new">
                 <div class="square-text">
-                    <h2 id='upcoming-games-title'>
+                    <h2 class='upcoming-games-title'>
                         Upcoming Games
                     </h2>
                 </div>
@@ -59,14 +59,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12" id='owned-games-col'>
+        <div class="col-md-12" class='owned-games-col'>
             <div class="square-new">
                 <div class="square-text">
-                    <h2 id='owned-games-title'>Owned Games</h2>
+                    <h2 class='owned-games-title'>Owned Games</h2>
                 </div>
             </div>
 
-            <div class="row" id='owned-games-row'>
+            <div class="row" class='owned-games-row'>
                 {{!-- Cards Go Here --}}
                 {{#each ownedGames}}
                 {{> owned_games}}

@@ -1,43 +1,42 @@
-<div class="card" id="unowned-games-cards">
+<div class="card unowned-games-cards">
     {{!-- Game title --}}
-    <div class="card-block" id='title'>
-        <h3 class="card-title text-center" id='card-game-title'>
-            {{name}}
+    <div class="card-block title">
+        <h3 class="card-title text-center card-game-title">{{name}}
         </h3>
     </div>
     {{!--  --}}
-    <div class="row" id='card-text'>
-        <div class="col-md-6" id='-col'>
-            <h5 id='card-desc-title'>
+    <div class="row card-text">
+        <div class="col-md-6 desc-col">
+            <h5 class='card-desc-title'>
                 Description:
             </h5>
-            <p id='description-card'>
+            <p class='description-card'>
                 {{description}}
             </p>
         </div>
-        <div class='col-md-6' id='info-col'>
-            <div class="row" id='card-text-info'>
-                <h5 id='card-genre-title'>
+        <div class='col-md-6 info-col'>
+            <div class="row card-text-info">
+                <h5 class='card-genre-title'>
                     Genre(s):
                 </h5>
-                <p id='all-info-cards'>
+                <p class='all-info-cards'>
                     {{genres}}
                 </p>
             </div>
 
-            <div class="row" id='card-text-info'>
-                <h5 id='platform-title'>
+            <div class="row card-text-info">
+                <h5 class='platform-title'>
                     Platform(s):
                 </h5>
-                <p id='all-info-cards'>
+                <p class='all-info-cards'>
                     {{platforms}}
                 </p>
             </div>
-            <div class="row" id='card-text-info'>
-                <h5 id='release-date-title'>
+            <div class="row card-text-info">
+                <h5 class='release-date-title'>
                     Release Date:
                 </h5>
-                <p id='all-info-cards'>
+                <p class='all-info-cards'>
                     {{releaseDate}}
                 </p>
             </div>
@@ -45,27 +44,27 @@
     </div>
 
     {{!-- Game Picture --}}
-    <div class="row" id='game-picture-row'>
+    <div class="row game-picture-row">
         {{#each Images}}
         <div class="col-md-4 game-img-col">
-            <img src="{{url}}" alt="" id='game-img'>
+            <img src="{{url}}" alt="" class='game-img'>
         </div>
         {{/each}}
     </div>
     {{!--  --}}
 
     {{#unless upcoming}}
-    <div class="card-block" id='btn-block'>
-        <div class="row" id='button-row'>
+    <div class="card-block btn-block">
+        <div class="row button-row">
             {{#unless owned}}
-            <div class="col" id='buttons-unowned-cards'>
-                <button href="#" class="btn btn-block btn-lg btn-primary" id='add-btn'>
+            <div class="col buttons-unowned-cards">
+                <button href="#" class="btn btn-block btn-lg btn-primary add-btn">
                     Add
                 </button>
             </div>
             {{else}}
-            <div class="col" id='buttons-unowned-cards'>
-                <button href="#" class="btn  btn-block btn-lg btn-danger" id='delete-btn'>
+            <div class="col buttons-unowned-cards">
+                <button href="#" class="btn  btn-block btn-lg btn-danger delete-btn">
                     Delete
                 </button>
             </div>
