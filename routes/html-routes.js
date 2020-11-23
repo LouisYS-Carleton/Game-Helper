@@ -13,8 +13,7 @@ router.get('/', async function (req, res) {
     ])
     const [currentGames, upcomingGames, ownedGames] = results
     markOwned(currentGames, ownedGames)
-    console.log(upcomingGames)
-    res.status(200).render('home')
+    res.status(200).render('home', { currentGames, upcomingGames, ownedGames })
   } catch (err) {
     console.log(err)
     res.status(401).json({ error: err })

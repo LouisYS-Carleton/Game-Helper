@@ -37,7 +37,9 @@
             </h2>
 
             {{!-- Cards go here --}}
+            {{#each currentGames}}
             {{> unowned_games}}
+            {{/each}}
             {{!--  --}}
         </div>
 
@@ -50,7 +52,9 @@
                 </div>
             </div>
             {{!-- Cards go here --}}
+            {{#each upcomingGames}}
             {{> unowned_games}}
+            {{/each}}
             {{!--  --}}
         </div>
     </div>
@@ -64,7 +68,9 @@
 
             <div class="row" id='owned-games-row'>
                 {{!-- Cards Go Here --}}
+                {{#each ownedGames}}
                 {{> owned_games}}
+                {{/each}}
                 {{!--  --}}
             </div>
         </div>
