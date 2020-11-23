@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "passwrd": "Nkm631997#",
+    "password": "Nkm631997#",
     "database": "good_games",
     "host": "127.0.0.1",
     "dialect": "mysql"
