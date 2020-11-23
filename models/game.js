@@ -18,6 +18,9 @@ module.exports = function (sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
     },
+    genres: {
+      type: DataTypes.STRING,
+    },
     owned: {
       type: DataTypes.BOOLEAN,
     },

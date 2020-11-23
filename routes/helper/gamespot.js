@@ -43,11 +43,16 @@ async function formatGamespotResults(results) {
 }
 
 function formatGame(game) {
+  const genres = []
+  for (const genre of game.genres) {
+    genres.push(genre.name)
+  }
   return {
     apiId: game.id,
     name: game.name,
     releaseDate: game.release_date,
     description: game.deck,
+    genres: genres.join(', '),
   }
 }
 
