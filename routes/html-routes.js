@@ -22,8 +22,10 @@ router.get('/', async function (req, res) {
 
 function markOwned(currentGames, ownedGames) {
   for (const game of currentGames) {
-    if (ownedGames.find((data) => game.apiId === data.apiId)) {
+    const foundGame = ownedGames.find((data) => game.apiId === data.apiId)
+    if (foundGame) {
       game.owned = true
+      game.id = foundGame.id
     } else {
       game.owned = false
     }
