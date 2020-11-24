@@ -1,5 +1,9 @@
 const router = require('express').Router()
-const { getCurrentGames, getUpcomingGames } = require('./helper/gamespot.js')
+const {
+  getCurrentGames,
+  getUpcomingGames,
+  searchGames,
+} = require('./helper/gamespot.js')
 const db = require('../models')
 
 router.get('/', async function (req, res) {
