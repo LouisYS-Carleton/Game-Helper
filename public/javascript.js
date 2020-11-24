@@ -11,7 +11,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
       deleteGame(id)
     })
   }
+
+  const searchButton = document.getElementById('search-form')
+  searchButton.addEventListener('submit', searchGame)
+
+  const introButton = document.getElementById('intro-btn')
+  if (introButton) {
+    introButton.onclick = function () {
+      // eslint-disable-next-line no-undef
+      const intro = introJs()
+
+      intro.start()
+    }
+  }
 })
+
+function searchGame(event) {
+  event.preventDefault()
+  const searchTerm = document.getElementById('search-input').value.trim()
+  if (searchTerm) {
+    window.location.href = `/search/${searchTerm}`
+  } else {
+    window.location.href = '/search/'
+  }
+}
 
 function deleteGame(id) {
   fetch(`/api/games/${id}`, {
@@ -62,11 +85,4 @@ function getGameInfo(target) {
     releaseDate,
     imageUrls,
   }
-}
-
-document.getElementById('intro-btn').onclick = function () {
-  // eslint-disable-next-line no-undef
-  const intro = introJs()
-
-  intro.start()
 }

@@ -10,6 +10,7 @@ async function getCurrentGames() {
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=release_date:${lastYear}|${today}` +
       '&limit=10' +
+      '&sort=release_date:desc' +
       '&format=json'
   )
   return formatGamespotResults(gamespotData.data.results)
@@ -26,6 +27,21 @@ async function getUpcomingGames() {
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=release_date:${tomorrow}|${tomorrowNextYear}` +
       '&limit=10' +
+      '&sort=release_date:asc' +
+      '&format=json'
+  )
+  const formattedGames = await formatGamespotResults(gamespotData.data.results)
+  return formattedGames.map(markUpcoming)
+}
+
+// Search for games
+async function searchGames(search) {
+  const formattedSearch = search.trim()
+  const gamespotData = await axios.get(
+    `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
+      `&filter=name:${formattedSearch}` +
+      '&limit=15' +
+      '&sort=release_date:desc' +
       '&format=json'
   )
   const formattedGames = await formatGamespotResults(gamespotData.data.results)
@@ -62,7 +78,9 @@ function formatGame(game) {
 }
 
 function markUpcoming(game) {
-  game.upcoming = true
+  if (moment(game.releaseDate).isAfter(moment())) {
+    game.upcoming = true
+  }
   return game
 }
 
@@ -137,4 +155,5 @@ function formatReleases(releases) {
 module.exports = {
   getCurrentGames,
   getUpcomingGames,
+  searchGames,
 }
