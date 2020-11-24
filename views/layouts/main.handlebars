@@ -20,6 +20,22 @@
 
 <body>
   <div class="container" style="max-width: 3000px !important;">
+    <header>
+      <a href='/'>
+        <h2 class="logo">GG</h2>
+      </a>
+      <form class="form-inline">
+        <div class="input-group">
+          <input id="search-input" type="text" class="form-control" placeholder="Search Games">
+          <div class="input-group-append">
+            <button id="search-button" class="btn btn-secondary" type="submit">
+              {{!-- Controller Icon --}}
+              <img src="/images/sports_esports-24px.svg" height="25" width="auto" alt="">
+            </button>
+          </div>
+        </div>
+      </form>
+    </header>
     {{{body}}}
   </div>
 
