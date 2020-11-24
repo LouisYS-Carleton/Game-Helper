@@ -11,7 +11,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
       deleteGame(id)
     })
   }
+
+  const searchButton = document.getElementById('search-form')
+  searchButton.addEventListener('submit', searchGame)
 })
+
+function searchGame(event) {
+  event.preventDefault()
+  const searchTerm = document.getElementById('search-input').value.trim()
+  if (searchTerm) {
+    window.location.href = `/search/${searchTerm}`
+  }
+}
 
 function deleteGame(id) {
   fetch(`/api/games/${id}`, {
