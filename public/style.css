@@ -20,6 +20,11 @@ a:hover {
   text-decoration: none !important;
 }
 
+#intro-btn {
+  margin: 10px;
+  background-color: rgb(143 198 255);
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -226,7 +231,7 @@ button.delete-btn {
 
 .owned-games-cards {
   height: auto;
-  width: 250px;
+  width: 350px;
   padding: 5px;
   margin: 5px;
   margin-bottom: 0px;
@@ -249,7 +254,7 @@ button.delete-btn {
 }
 
 .img-owned {
-  height: 127px;
+  height: 150px;
 }
 
 .btns-owned {
@@ -260,6 +265,7 @@ button.delete-btn {
 }
 /*  */
 
+/* Intro.js */
 #tourbtn {
   position: fixed;
   right: 15px;
@@ -279,4 +285,9 @@ button.delete-btn {
 }
 #tourbtn a:hover {
   background: #cacf96;
+}
+
+.introjs-relativePosition {
+  position: relative;
+  background-color: #2f2e2e;
 }
