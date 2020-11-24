@@ -39,7 +39,7 @@ router.get('/search/:game', async function (req, res) {
     ])
     const [searchedGames, ownedGames] = results
     markOwned(searchedGames, ownedGames)
-    res.status(200).render('search', { searchedGames })
+    res.status(200).render('search', { searchTerm, searchedGames })
   } catch (err) {
     console.log(err)
     res.status(401).json({ error: err })
