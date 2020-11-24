@@ -75,7 +75,9 @@ function formatGame(game) {
 }
 
 function markUpcoming(game) {
-  game.upcoming = true
+  if (moment(game.releaseDate).isAfter(moment())) {
+    game.upcoming = true
+  }
   return game
 }
 
