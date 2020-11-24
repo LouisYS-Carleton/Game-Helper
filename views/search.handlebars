@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1>Search results for: 'sample'</h1>
+  </div>
+  <div class="row">
+    {{#each searchedGames}}
+    <div class="col-md-6">
+      {{> unowned_games}}
+    </div>
+    {{/each}}
+  </div>
+</div>
