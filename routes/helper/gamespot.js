@@ -32,6 +32,19 @@ async function getUpcomingGames() {
   return formattedGames.map(markUpcoming)
 }
 
+// Search for games
+async function searchGames(search) {
+  const formattedSearch = search.trim()
+  const gamespotData = await axios.get(
+    `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
+      `&filter=name:${formattedSearch}` +
+      '&limit=10' +
+      '&format=json'
+  )
+  const formattedGames = await formatGamespotResults(gamespotData.data.results)
+  return formattedGames.map(markUpcoming)
+}
+
 // Helper functions for handling and formatting game data
 async function formatGamespotResults(results) {
   const formattedGames = []
@@ -137,4 +150,5 @@ function formatReleases(releases) {
 module.exports = {
   getCurrentGames,
   getUpcomingGames,
+  searchGames,
 }
