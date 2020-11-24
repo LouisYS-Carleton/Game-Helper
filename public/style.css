@@ -34,18 +34,10 @@ header {
   text-decoration: none;
 }
 
-button {
-  padding: 9px 25px;
-  background: rgba(0, 136, 169, 1);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
+input.form-control {
+  height: auto;
 }
 
-button:hover {
-  background: rgba(0, 136, 169, 0.8);
-}
 /*  */
 
 /* Cards */
