@@ -1,7 +1,17 @@
 <div class="container-fluid">
     <div class="row">
+        <div class="col pr-0 d-flex justify-content-end">
+            {{!-- Intro.js --}}
+            <button class="btn btn-secondary mr-0" id='intro-btn' type="submit">
+                <img src="/images/pngegg.png" alt="" height="24" width="24">
+            </button>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6 current-games-col">
-            <h2 class='current-games-col-title'>
+            <h2 class='current-games-col-title'
+                data-intro='This is the current games list. You can keep track of interesting games that are already available here. If there are any that you already own, please click the "add" button.'
+                data-step='2'>
                 Current Games
             </h2>
 
@@ -15,7 +25,9 @@
         <div class="col-md-6 upcoming-games-col">
             <div class="square-new">
                 <div class="square-text">
-                    <h2 class='upcoming-games-title'>
+                    <h2 class='upcoming-games-title'
+                        data-intro='Here you will find some interesting upcoming releases. Keep track of any unreleased games that you are excited for!'
+                        data-step='4'>
                         Upcoming Games
                     </h2>
                 </div>
@@ -31,7 +43,9 @@
         <div class="col-md-12" class='owned-games-col'>
             <div class="square-new">
                 <div class="square-text">
-                    <h2 class='owned-games-title'>Owned Games</h2>
+                    <h2 class='owned-games-title'
+                        data-intro='You can organize all of your currently owned games here. If you sell or lose one, just click "delete" to remove it from your list. Enjoy using Good Games, and have fun gamers!'
+                        data-step='5'>Owned Games</h2>
                 </div>
             </div>
 

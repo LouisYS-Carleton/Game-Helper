@@ -14,6 +14,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   const searchButton = document.getElementById('search-form')
   searchButton.addEventListener('submit', searchGame)
+
+  const introButton = document.getElementById('intro-btn')
+  if (introButton) {
+    introButton.onclick = function () {
+      // eslint-disable-next-line no-undef
+      const intro = introJs()
+
+      intro.start()
+    }
+  }
 })
 
 function searchGame(event) {

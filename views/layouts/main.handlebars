@@ -15,6 +15,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Raleway&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.0.1/introjs.min.css"
+    integrity="sha512-fsq7ym+bMq7ecs277R2a3QDPxF+JIwNNnkPfj9rIKDUyqrbXDnICZj/cCLcP3bKh3+jsCBnBR7BZJShOmELL0Q=="
+    crossorigin="anonymous" />
+
+
   <title>Good Games</title>
 </head>
 
@@ -24,9 +29,11 @@
       <a href='/'>
         <h2 class="logo">GG</h2>
       </a>
-      <form class="form-inline" id="search-form">
+      <form class="form-inline" id="search-form"
+        data-intro='Welcome to Good Games! Simply search for the name of your favorite video game to get started.'
+        data-step='1'>>
         <div class="input-group">
-          <input id="search-input" type="text" class="form-control" placeholder="Search Games">
+          <input id="search-input" type="text" class="form-control" placeholder="Search">
           <div class="input-group-append">
             <button class="btn btn-secondary" type="submit">
               {{!-- Controller Icon --}}
@@ -41,9 +48,13 @@
 
   <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="/javascript.js"></script>
+  {{!-- Intro.js --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.0.1/intro.min.js"
+    integrity="sha512-Y3bwrs/uUQhiNsD26Mpr5YvfG18EY0J+aNxYI7ZQPJlM9H+lElGpuh/JURVJR/NBE+p1JZ+sVE773Un4zQcagg=="
+    crossorigin="anonymous"></script>
+
+  <script src='/javascript.js'></script>
+  {{!--  --}}
 </body>
 
 </html>
