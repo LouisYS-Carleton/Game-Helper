@@ -65,6 +65,7 @@ function getGameInfo(target) {
 }
 
 document.getElementById('intro-btn').onclick = function () {
+  // eslint-disable-next-line no-undef
   const intro = introJs()
 
   intro.start()
