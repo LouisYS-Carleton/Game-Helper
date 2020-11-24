@@ -27,6 +27,7 @@ async function getUpcomingGames() {
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=release_date:${tomorrow}|${tomorrowNextYear}` +
       '&limit=10' +
+      '&sort=release_date:asc' +
       '&format=json'
   )
   const formattedGames = await formatGamespotResults(gamespotData.data.results)
