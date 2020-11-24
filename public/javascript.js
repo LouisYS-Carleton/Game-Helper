@@ -63,3 +63,9 @@ function getGameInfo(target) {
     imageUrls,
   }
 }
+
+document.getElementById('intro-btn').onclick = function () {
+  const intro = introJs()
+
+  intro.start()
+}
