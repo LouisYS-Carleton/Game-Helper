@@ -251,3 +251,9 @@ button.delete-btn {
   margin-top: 10px;
 }
 /*  */
+
+/* Searched games */
+#search-result-head {
+  color: rgb(255, 255, 255);
+}
+/*  */
