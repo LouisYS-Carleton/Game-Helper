@@ -28,6 +28,28 @@ router.get('/', async function (req, res) {
   }
 })
 
+router.get('/search', async function (req, res) {
+  try {
+    const results = await Promise.all([
+      searchGames('mario party'),
+      db.Game.findAll({
+        include: db.Image,
+      }),
+    ])
+    const [searchedGames, ownedGames] = results
+    markOwned(searchedGames, ownedGames)
+    res.status(200).json({
+      data: {
+        searchedGames: searchedGames,
+        ownedGames: formatOwnedGames(ownedGames),
+      },
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(401).json({ error: err })
+  }
+})
+
 function formatOwnedGames(ownedGames) {
   return ownedGames.map((game) => {
     game.dataValues.Images = game.dataValues.Images.map(
