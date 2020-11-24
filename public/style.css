@@ -9,7 +9,8 @@ body {
 li,
 a,
 button,
-h2 {
+h2,
+h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   color: #edf0f1;
