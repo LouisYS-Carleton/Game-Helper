@@ -10,6 +10,7 @@ async function getCurrentGames() {
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=release_date:${lastYear}|${today}` +
       '&limit=10' +
+      '&sort=release_date:desc' +
       '&format=json'
   )
   return formatGamespotResults(gamespotData.data.results)
@@ -39,6 +40,7 @@ async function searchGames(search) {
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=name:${formattedSearch}` +
       '&limit=15' +
+      '&sort=release_date:desc' +
       '&format=json'
   )
   const formattedGames = await formatGamespotResults(gamespotData.data.results)
