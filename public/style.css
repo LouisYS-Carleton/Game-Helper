@@ -225,7 +225,7 @@ button.delete-btn {
 }
 
 .owned-games-cards {
-  height: 275px;
+  height: auto;
   width: 250px;
   padding: 5px;
   margin: 5px;
