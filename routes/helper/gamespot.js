@@ -38,6 +38,7 @@ async function searchGames(search) {
   const gamespotData = await axios.get(
     `http://www.gamespot.com/api/games/?api_key=${API_KEY}` +
       `&filter=name:${formattedSearch}` +
+      '&limit=15' +
       '&format=json'
   )
   const formattedGames = await formatGamespotResults(gamespotData.data.results)
