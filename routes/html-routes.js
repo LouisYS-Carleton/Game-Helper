@@ -28,10 +28,11 @@ router.get('/', async function (req, res) {
   }
 })
 
-router.get('/search', async function (req, res) {
+router.get('/search/:game', async function (req, res) {
   try {
+    const searchTerm = req.params.game
     const results = await Promise.all([
-      searchGames('mario party'),
+      searchGames(searchTerm),
       db.Game.findAll({
         include: db.Image,
       }),
