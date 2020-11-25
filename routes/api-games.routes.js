@@ -15,14 +15,22 @@ router.get('/', function (req, res) {
 
 router.post('/', async function (req, res) {
   try {
-    const { apiId, name, releaseDate, platform, description } = req.body
+    const {
+      apiId,
+      name,
+      releaseDate,
+      platforms,
+      description,
+      genres,
+    } = req.body
 
     const newGame = await db.Game.create({
       apiId,
       name,
       releaseDate,
-      platform,
+      platforms,
       description,
+      genres,
     })
 
     res.redirect(307, `/api/images/${newGame.id}`)
@@ -39,7 +47,7 @@ router.delete('/:id', async function (req, res) {
     if (!game) res.status(401).json({ error: 'Game not found.' })
 
     await game.destroy()
-    res.status(200).json(game)
+    res.status(200).json({ data: game })
   } catch (err) {
     res.status(500).json({ error: err })
   }

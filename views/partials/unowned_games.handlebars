@@ -1,0 +1,76 @@
+<div class="card unowned-games-cards">
+    {{!-- Game title --}}
+    <div class="card-block title">
+        <h3 class="card-title text-center card-game-title name">{{name}}
+        </h3>
+    </div>
+    {{!--  --}}
+    <div class="row card-text">
+        <div class="col-md-6 desc-col">
+            <h5 class='card-desc-title'>
+                Description:
+            </h5>
+            <p class='description-card description'>
+                {{description}}
+            </p>
+        </div>
+        <div class='col-md-6 info-col'>
+            <div class="row card-text-info">
+                <h5 class='card-genre-title'>
+                    Genre(s):
+                </h5>
+                <p class='all-info-cards genres'>
+                    {{genres}}
+                </p>
+            </div>
+
+            <div class="row card-text-info">
+                <h5 class='platform-title'>
+                    Platform(s):
+                </h5>
+                <p class='all-info-cards platforms'>
+                    {{platforms}}
+                </p>
+            </div>
+            <div class="row card-text-info">
+                <h5 class='release-date-title'>
+                    Release Date:
+                </h5>
+                <p class='all-info-cards release-date'>
+                    {{releaseDate}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Game Picture --}}
+    <div class="row game-picture-row images">
+        {{#each Images}}
+        <div class="col-md-4 game-img-col">
+            <img src="{{url}}" alt="" class='game-img'>
+        </div>
+        {{/each}}
+    </div>
+    {{!--  --}}
+
+    {{#unless upcoming}}
+    <div class="card-block btn-block">
+        <div class="row button-row">
+            {{#unless owned}}
+            <div class="col buttons-unowned-cards">
+                <button class="btn btn-block btn-lg btn-primary add-btn" data-id="{{apiId}}">
+                    Add
+                </button>
+            </div>
+            {{else}}
+            <div class="col buttons-unowned-cards">
+                <button class="btn  btn-block btn-lg btn-danger delete-btn" data-id="{{id}}">
+                    Delete
+                </button>
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+    {{/unless}}
+</div>
+{{!--  --}}

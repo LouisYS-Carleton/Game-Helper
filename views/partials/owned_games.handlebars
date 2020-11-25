@@ -1,0 +1,17 @@
+<div class="card owned-games-cards">
+    {{!-- Game title --}}
+    <div class="card-block title">
+        <h3 class="card-title text-center owned-games-game-title">{{name}}</h3>
+    </div>
+    {{!--  --}}
+
+    <div class="card-block">
+        <div class="row owned-img-btn-row">
+            {{#if Images}}
+            <img src="{{Images.0.url}}" alt="" class='img-owned'>
+            {{/if}}
+            <button class="btn btn-block btn-lg btn-danger btns-owned delete-btn" data-id="{{id}}">Delete</button>
+        </div>
+    </div>
+    {{!--  --}}
+</div>

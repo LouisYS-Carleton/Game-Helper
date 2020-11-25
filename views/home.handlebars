@@ -1,138 +1,59 @@
-<header>
-    <a href='/'>
-        <h2 class="logo">GG</h2>
-    </a>
-    <form class="form-inline">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Games">
-            <div class="input-group-append">
-                <button class="btn btn-secondary" type="submit">
-                    {{!-- Controller Icon --}}
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
-                        style="background-color: transparent;">
-                        <g>
-                            <rect fill="none" height="24" width="24" />
-                        </g>
-                        <g>
-                            <g>
-                                <path
-                                    d="M21.58,16.09l-1.09-7.66C20.21,6.46,18.52,5,16.53,5H7.47C5.48,5,3.79,6.46,3.51,8.43l-1.09,7.66 C2.2,17.63,3.39,19,4.94,19h0c0.68,0,1.32-0.27,1.8-0.75L9,16h6l2.25,2.25c0.48,0.48,1.13,0.75,1.8,0.75h0 C20.61,19,21.8,17.63,21.58,16.09z M11,11H9v2H8v-2H6v-1h2V8h1v2h2V11z M15,10c-0.55,0-1-0.45-1-1c0-0.55,0.45-1,1-1s1,0.45,1,1 C16,9.55,15.55,10,15,10z M17,13c-0.55,0-1-0.45-1-1c0-0.55,0.45-1,1-1s1,0.45,1,1C18,12.55,17.55,13,17,13z" />
-                            </g>
-                        </g>
-                    </svg>
-                    {{!--  --}}
-                </button>
-            </div>
-        </div>
-    </form>
-    </a>
-</header>
-
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6" style="border: solid thin white;  height: 600px;">
-            <div class="square-new" style="background-image: url('http://placehold.it/1000/777777');">
-                <div class="square-text">
-                    <h2 style="text-align: center;  margin: 5px; padding: 5px;">
-                        Current Games
-
-                        {{!--  --}}
-                        <button class="btn btn-secondary" type="submit">
-                            {{!-- Controller Icon --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
-                                style="background-color: transparent;">
-                                <g>
-                                    <rect fill="none" height="24" width="24" />
-                                </g>
-                                <g>
-                                    <g>
-                                        <path
-                                            d="M21.58,16.09l-1.09-7.66C20.21,6.46,18.52,5,16.53,5H7.47C5.48,5,3.79,6.46,3.51,8.43l-1.09,7.66 C2.2,17.63,3.39,19,4.94,19h0c0.68,0,1.32-0.27,1.8-0.75L9,16h6l2.25,2.25c0.48,0.48,1.13,0.75,1.8,0.75h0 C20.61,19,21.8,17.63,21.58,16.09z M11,11H9v2H8v-2H6v-1h2V8h1v2h2V11z M15,10c-0.55,0-1-0.45-1-1c0-0.55,0.45-1,1-1s1,0.45,1,1 C16,9.55,15.55,10,15,10z M17,13c-0.55,0-1-0.45-1-1c0-0.55,0.45-1,1-1s1,0.45,1,1C18,12.55,17.55,13,17,13z" />
-                                    </g>
-                                </g>
-                            </svg>
-                            {{!--  --}}
-
-                        </button>
-                    </h2>
-                </div>
-            </div>
+        <div class="col pr-0 d-flex justify-content-end">
+            {{!-- Intro.js --}}
+            <button class="btn btn-secondary mr-0" id='intro-btn' type="submit">
+                <img src="/images/pngegg.png" alt="" height="24" width="24">
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 current-games-col">
+            <h2 class='current-games-col-title'
+                data-intro='This is the current games list. You can keep track of interesting games that are already available here. If there are any that you already own, please click the "add" button.'
+                data-step='2'>
+                Current Games
+            </h2>
 
             {{!-- Cards go here --}}
-            <div class="card" style="background-color: white; margin: 5px; padding: 10px;">
-                <p style="background-color: rgb(255, 255, 255);">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Sed quia
-                    accusantium
-                    reiciendis a amet
-                    delectus eligendi, debitis, voluptas voluptatibus modi placeat labore libero omnis nam quaerat
-                    commodi repellat, eum aliquam?</p>
-            </div>
-
-            <div class="card" style="background-color: white; margin: 5px; padding: 10px;">
-                <p style="background-color: rgb(255, 255, 255);">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Sed quia
-                    accusantium
-                    reiciendis a amet
-                    delectus eligendi, debitis, voluptas voluptatibus modi placeat labore libero omnis nam quaerat
-                    commodi repellat, eum aliquam?</p>
-            </div>
+            {{#each currentGames}}
+            {{> unowned_games}}
+            {{/each}}
             {{!--  --}}
         </div>
-        <div class="col-md-6" style="border: solid thin white; height: 600px;">
-            <div class="square-new" style="background-image: url('http://placehold.it/1000/666666');">
+
+        <div class="col-md-6 upcoming-games-col">
+            <div class="square-new">
                 <div class="square-text">
-                    <h2 style="text-align: center; margin: 5px; padding: 5px;">
+                    <h2 class='upcoming-games-title'
+                        data-intro='Here you will find some interesting upcoming releases. Keep track of any unreleased games that you are excited for!'
+                        data-step='4'>
                         Upcoming Games
-                        <button class="btn btn-secondary" type="submit">
-                            {{!-- Controller Icon --}}
-                            <img src='/images/articles.svg'>
-                            {{!--  --}}
-                        </button>
                     </h2>
                 </div>
             </div>
-
             {{!-- Cards go here --}}
-            <div class="card" style="background-color: white; margin: 5px; padding: 10px;">
-                <p style="background-color: rgb(255, 255, 255);">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Sed quia
-                    accusantium
-                    reiciendis a amet
-                    delectus eligendi, debitis, voluptas voluptatibus modi placeat labore libero omnis nam quaerat
-                    commodi repellat, eum aliquam?</p>
-            </div>
-
-            <div class="card" style="background-color: white; margin: 5px; padding: 10px;">
-                <p style="background-color: rgb(255, 255, 255);">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Sed quia
-                    accusantium
-                    reiciendis a amet
-                    delectus eligendi, debitis, voluptas voluptatibus modi placeat labore libero omnis nam quaerat
-                    commodi repellat, eum aliquam?</p>
-            </div>
+            {{#each upcomingGames}}
+            {{> unowned_games}}
+            {{/each}}
             {{!--  --}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12" style="border: solid thin white;  height: 350px;">
-            <div class="square-new" style="background-image: url('http://placehold.it/1000/777777');">
+        <div class="col-md-12" class='owned-games-col'>
+            <div class="square-new">
                 <div class="square-text">
-                    <h2 style="text-align: center; margin: 5px; padding: 5px;">Owned Games</h2>
+                    <h2 class='owned-games-title'
+                        data-intro='You can organize all of your currently owned games here. If you sell or lose one, just click "delete" to remove it from your list. Enjoy using Good Games, and have fun gamers!'
+                        data-step='5'>Owned Games</h2>
                 </div>
             </div>
 
-            <div class="row" style="margin: 5px;">
-                {{!-- Cards go here --}}
-                <div class="card" style='height: 250px; width: 250px; padding: 5px; margin: 5px;'>Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Eligendi necessitatibus fugiat hic. Fuga facere aliquid
-                    voluptatem quae ut, magni, eos labore dolores esse mollitia, aliquam nemo voluptate similique
-                    consequatur tenetur?</div>
-
-                <div class="card" style='height: 250px; width: 250px; padding: 5px; margin: 5px;'>Lorem ipsum dolor, sit
-                    amet consectetur adipisicing elit. Sit esse repellat officiis exercitationem voluptatem. Iusto
-                    quaerat quis, ex debitis vel dolores tempore reprehenderit voluptate praesentium asperiores veniam
-                    velit totam optio.</div>
+            <div class="row owned-games-row">
+                {{!-- Cards Go Here --}}
+                {{#each ownedGames}}
+                {{> owned_games}}
+                {{/each}}
                 {{!--  --}}
             </div>
         </div>

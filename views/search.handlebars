@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h2 id="search-result-head">Search results for: '{{searchTerm}}'</h2>
+    </div>
+  </div>
+  <div class="row">
+    {{#if searchedGames}}
+    {{#each searchedGames}}
+    <div class="col-md-6">
+      {{> unowned_games}}
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="col">
+      <h3>No search results matched '{{searchTerm}}'</h3>
+    </div>
+    {{/if}}
+  </div>
+</div>
