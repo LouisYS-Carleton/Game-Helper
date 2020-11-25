@@ -52,9 +52,22 @@ function addGame(event) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(gameInfo),
-  }).then(function (response) {
-    window.location.reload()
   })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (game) {
+      event.target.classList.remove('btn-primary', 'add-btn')
+      event.target.classList.add('btn-danger', 'delete-btn')
+      event.target.dataset.id = game.data.id
+      event.target.textContent = 'Delete'
+      event.target.removeEventListener('click', addGame)
+      event.target.addEventListener('click', deleteGame)
+      const ownedGamesRow = document.querySelector('.owned-games-row')
+      if (ownedGamesRow) {
+        displayOwnedGames(ownedGamesRow)
+      }
+    })
 }
 
 function displayOwnedGames(ownedGamesRow) {
