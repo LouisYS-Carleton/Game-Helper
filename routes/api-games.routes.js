@@ -47,7 +47,7 @@ router.delete('/:id', async function (req, res) {
     if (!game) res.status(401).json({ error: 'Game not found.' })
 
     await game.destroy()
-    res.status(200).json(game)
+    res.status(200).json({ data: game })
   } catch (err) {
     res.status(500).json({ error: err })
   }
