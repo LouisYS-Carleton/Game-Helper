@@ -115,7 +115,7 @@ function getGameCard(game) {
   <div class="card-block">
     <div class="row owned-img-btn-row">
       ${
-        game.images
+        game.Images.length > 0
           ? `<img src="${game.Images[0].url}" alt="" class="img-owned">`
           : ''
       }
