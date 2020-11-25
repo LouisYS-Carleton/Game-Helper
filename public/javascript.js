@@ -43,12 +43,15 @@ function deleteGame(event) {
       return response.json()
     })
     .then(function (game) {
-      event.target.classList.add('btn-primary', 'add-btn')
-      event.target.classList.remove('btn-danger', 'delete-btn')
-      event.target.dataset.id = game.data.apiId
-      event.target.textContent = 'Add'
-      event.target.removeEventListener('click', deleteGame)
-      event.target.addEventListener('click', addGame)
+      const buttonsWithId = document.querySelectorAll(`[data-id="${id}"]`)
+      for (const button of buttonsWithId) {
+        button.classList.add('btn-primary', 'add-btn')
+        button.classList.remove('btn-danger', 'delete-btn')
+        button.dataset.id = game.data.apiId
+        button.textContent = 'Add'
+        button.removeEventListener('click', deleteGame)
+        button.addEventListener('click', addGame)
+      }
       const ownedGamesRow = document.querySelector('.owned-games-row')
       if (ownedGamesRow) {
         displayOwnedGames(ownedGamesRow)
