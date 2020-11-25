@@ -3,13 +3,6 @@ const bcrypt = require('bcryptjs')
 // this should set up the user table
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define('User', {
-        id: {
-            type: DataTypes. INTEGER,
-            unique: true,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
