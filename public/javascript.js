@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   const deleteButtons = document.querySelectorAll('.delete-btn')
   for (const button of deleteButtons) {
-    button.addEventListener('click', function (event) {
-      const id = this.dataset.id
-      deleteGame(id)
-    })
+    button.addEventListener('click', deleteGame)
   }
 
   const searchButton = document.getElementById('search-form')
@@ -36,7 +33,8 @@ function searchGame(event) {
   }
 }
 
-function deleteGame(id) {
+function deleteGame(event) {
+  const id = event.target.dataset.id
   fetch(`/api/games/${id}`, {
     method: 'DELETE',
   }).then(function (response) {
@@ -90,10 +88,7 @@ function addDeleteListener(ownedGamesRow) {
   const ownedGames = ownedGamesRow.children
   for (const ownedGame of ownedGames) {
     const deleteButton = ownedGame.querySelector('.delete-btn')
-    deleteButton.addEventListener('click', function () {
-      const id = this.dataset.id
-      deleteGame(id)
-    })
+    deleteButton.addEventListener('click', deleteGame)
   }
 }
 
