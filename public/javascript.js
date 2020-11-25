@@ -37,9 +37,23 @@ function deleteGame(event) {
   const id = event.target.dataset.id
   fetch(`/api/games/${id}`, {
     method: 'DELETE',
-  }).then(function (response) {
-    window.location.reload()
   })
+    .then(function (response) {
+      // window.location.reload()
+      return response.json()
+    })
+    .then(function (game) {
+      event.target.classList.add('btn-primary', 'add-btn')
+      event.target.classList.remove('btn-danger', 'delete-btn')
+      event.target.dataset.id = game.data.apiId
+      event.target.textContent = 'Add'
+      event.target.removeEventListener('click', deleteGame)
+      event.target.addEventListener('click', addGame)
+      const ownedGamesRow = document.querySelector('.owned-games-row')
+      if (ownedGamesRow) {
+        displayOwnedGames(ownedGamesRow)
+      }
+    })
 }
 
 function addGame(event) {
