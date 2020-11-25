@@ -57,6 +57,22 @@ function addGame(event) {
   })
 }
 
+function displayOwnedGames(ownedGamesRow) {
+  ownedGamesRow.innerHTML = ''
+  fetch(`/api/games`, {
+    method: 'GET',
+  })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (games) {
+      for (const game of games.data) {
+        ownedGamesRow.innerHTML += getGameCard(game)
+      }
+      addDeleteListener(ownedGamesRow)
+    })
+}
+
 function addDeleteListener(ownedGamesRow) {
   const ownedGames = ownedGamesRow.children
   for (const ownedGame of ownedGames) {
