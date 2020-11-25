@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   const deleteButtons = document.querySelectorAll('.delete-btn')
   for (const button of deleteButtons) {
-    button.addEventListener('click', function (event) {
-      const id = this.dataset.id
-      deleteGame(id)
-    })
+    button.addEventListener('click', deleteGame)
   }
 
   const searchButton = document.getElementById('search-form')
@@ -36,12 +33,30 @@ function searchGame(event) {
   }
 }
 
-function deleteGame(id) {
+function deleteGame(event) {
+  const id = event.target.dataset.id
   fetch(`/api/games/${id}`, {
     method: 'DELETE',
-  }).then(function (response) {
-    window.location.reload()
   })
+    .then(function (response) {
+      // window.location.reload()
+      return response.json()
+    })
+    .then(function (game) {
+      const buttonsWithId = document.querySelectorAll(`[data-id="${id}"]`)
+      for (const button of buttonsWithId) {
+        button.classList.add('btn-primary', 'add-btn')
+        button.classList.remove('btn-danger', 'delete-btn')
+        button.dataset.id = game.data.apiId
+        button.textContent = 'Add'
+        button.removeEventListener('click', deleteGame)
+        button.addEventListener('click', addGame)
+      }
+      const ownedGamesRow = document.querySelector('.owned-games-row')
+      if (ownedGamesRow) {
+        displayOwnedGames(ownedGamesRow)
+      }
+    })
 }
 
 function addGame(event) {
@@ -52,9 +67,67 @@ function addGame(event) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(gameInfo),
-  }).then(function (response) {
-    window.location.reload()
   })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (game) {
+      event.target.classList.remove('btn-primary', 'add-btn')
+      event.target.classList.add('btn-danger', 'delete-btn')
+      event.target.dataset.id = game.data.id
+      event.target.textContent = 'Delete'
+      event.target.removeEventListener('click', addGame)
+      event.target.addEventListener('click', deleteGame)
+      const ownedGamesRow = document.querySelector('.owned-games-row')
+      if (ownedGamesRow) {
+        displayOwnedGames(ownedGamesRow)
+      }
+    })
+}
+
+function displayOwnedGames(ownedGamesRow) {
+  ownedGamesRow.innerHTML = ''
+  fetch(`/api/games`, {
+    method: 'GET',
+  })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (games) {
+      for (const game of games.data) {
+        ownedGamesRow.innerHTML += getGameCard(game)
+      }
+      addDeleteListener(ownedGamesRow)
+    })
+}
+
+function addDeleteListener(ownedGamesRow) {
+  const ownedGames = ownedGamesRow.children
+  for (const ownedGame of ownedGames) {
+    const deleteButton = ownedGame.querySelector('.delete-btn')
+    deleteButton.addEventListener('click', deleteGame)
+  }
+}
+
+function getGameCard(game) {
+  return `
+<div class="card owned-games-cards">
+  <div class="card-block title">
+    <h3 class="card-title text-center owned-games-game-title">${game.name}</h3>
+  </div>
+  <div class="card-block">
+    <div class="row owned-img-btn-row">
+      ${
+        game.Images.length > 0
+          ? `<img src="${game.Images[0].url}" alt="" class="img-owned">`
+          : ''
+      }
+      <button class="btn btn-block btn-lg btn-danger btns-owned delete-btn" data-id="${
+        game.id
+      }">Delete</button>
+    </div>
+  </div>
+</div`
 }
 
 function getGameInfo(target) {
