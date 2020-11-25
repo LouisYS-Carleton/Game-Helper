@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.0.1/introjs.min.css"
     integrity="sha512-fsq7ym+bMq7ecs277R2a3QDPxF+JIwNNnkPfj9rIKDUyqrbXDnICZj/cCLcP3bKh3+jsCBnBR7BZJShOmELL0Q=="
     crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
 
 
   <title>Good Games</title>
@@ -26,22 +29,33 @@
 <body>
   <div class="container" style="max-width: 3000px !important;">
     <header>
-      <a href='/'>
-        <h2 class="logo">GG</h2>
-      </a>
-      <form class="form-inline" id="search-form"
-        data-intro='Welcome to Good Games! Simply search for the name of your favorite video game to get started.'
-        data-step='1'>>
-        <div class="input-group">
-          <input id="search-input" type="text" class="form-control" placeholder="Search">
-          <div class="input-group-append">
-            <button class="btn btn-secondary" type="submit">
-              {{!-- Controller Icon --}}
-              <img src="/images/controller_icon.svg" height="25" width="auto" alt="">
-            </button>
-          </div>
+      <div class="col-md-10">
+        <div class="row">
+          <a href='/'>
+            <h2 class="logo">GG</h2>
+          </a>
+          <img src="/images/toppng.com-handshake-icon-png-shake-hands-icon-orange-542x542.png" alt="" width='50px'
+            height='50px' style="margin-top: 22px;">
         </div>
-      </form>
+      </div>
+
+      <div class="col-md-2" class='search-bar-col'>
+        <div>
+          <form class="form-inline" id="search-form"
+            data-intro='Welcome to Good Games! Simply search for the name of your favorite video game to get started.'
+            data-step='1'>>
+            <div class="input-group">
+              <input id="search-input" type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                  {{!-- Controller Icon --}}
+                  <img src="/images/controller_icon.svg" height="25" width="auto" alt="">
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </header>
     {{{body}}}
   </div>

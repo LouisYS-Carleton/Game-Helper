@@ -34,16 +34,23 @@ header {
 
 .logo {
   cursor: pointer;
-  padding: 20px;
-  width: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  width: 60px;
   font-variant: small-caps;
   text-decoration: none;
+  font-family: 'Goldman', cursive;
 }
 
 input.form-control {
   height: auto;
 }
 
+.col-md-2 {
+  padding-right: 0px !important;
+}
 /*  */
 
 /* Cards */
