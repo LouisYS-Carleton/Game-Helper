@@ -57,6 +57,17 @@ function addGame(event) {
   })
 }
 
+function addDeleteListener(ownedGamesRow) {
+  const ownedGames = ownedGamesRow.children
+  for (const ownedGame of ownedGames) {
+    const deleteButton = ownedGame.querySelector('.delete-btn')
+    deleteButton.addEventListener('click', function () {
+      const id = this.dataset.id
+      deleteGame(id)
+    })
+  }
+}
+
 function getGameCard(game) {
   return `
 <div class="card owned-games-cards">
