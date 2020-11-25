@@ -57,6 +57,27 @@ function addGame(event) {
   })
 }
 
+function getGameCard(game) {
+  return `
+<div class="card owned-games-cards">
+  <div class="card-block title">
+    <h3 class="card-title text-center owned-games-game-title">${game.name}</h3>
+  </div>
+  <div class="card-block">
+    <div class="row owned-img-btn-row">
+      ${
+        game.images
+          ? `<img src="${game.Images[0].url}" alt="" class="img-owned">`
+          : ''
+      }
+      <button class="btn btn-block btn-lg btn-danger btns-owned delete-btn" data-id="${
+        game.id
+      }">Delete</button>
+    </div>
+  </div>
+</div`
+}
+
 function getGameInfo(target) {
   const apiId = target.dataset.id
   const currentCard = target.closest('.card')
