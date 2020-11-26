@@ -19,6 +19,9 @@ router.get('/:game', isAuthenticate, async function (req, res) {
       searchGames(searchTerm),
       db.Game.findAll({
         include: db.Image,
+        where: {
+          UserId: req.user.id,
+        },
       }),
     ])
     const [searchedGames, ownedGames] = results

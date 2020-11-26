@@ -14,6 +14,9 @@ router.post('/:gameId', isAuthenticate, async function (req, res) {
     }
     const newGame = await db.Game.findByPk(gameId, {
       include: db.Image,
+      where: {
+        UserId: req.user.id,
+      },
     })
     res.status(201).json({ data: newGame })
   } catch (err) {

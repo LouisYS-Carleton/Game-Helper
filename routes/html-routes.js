@@ -11,6 +11,9 @@ router.get('/', isAuthenticate, async function (req, res) {
       getUpcomingGames(),
       db.Game.findAll({
         include: db.Image,
+        where: {
+          UserId: req.user.id,
+        },
       }),
     ])
     const [currentGames, upcomingGames, ownedGames] = results
