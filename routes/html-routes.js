@@ -27,22 +27,20 @@ router.get('/', isAuthenticate, async function (req, res) {
 })
 
 router.get('/login', function (req, res) {
-    // If the user already has an account send them to the login page
-    if (req.user) {
-        res.redirect('/')
-    }
-    res.render('login', {layout: 'intro'})
+  // If the user already has an account send them to the login page
+  if (req.user) {
+    res.redirect('/')
+  }
+  res.render('login', { layout: 'intro' })
 })
 
-router.get('/signup', function(req, res) {
-    res.render('signup', {layout: 'intro'})
+router.get('/signup', function (req, res) {
+  res.render('signup', { layout: 'intro' })
 })
 
 router.get('/logout', function (req, res) {
   req.logout()
   res.redirect('/login')
-  }
-)
-
+})
 
 module.exports = router
