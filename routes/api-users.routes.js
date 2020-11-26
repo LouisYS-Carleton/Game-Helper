@@ -16,14 +16,16 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 
 
 router.post('/signup', function (req, res) {
+  console.log(req.body)
   db.User.create({
     email: req.body.email,
-    password: req.body.password
+    hashedPassword: req.body.password
   })
     .then(function () {
-      res.redirect(307, '/login')
+      res.redirect(307, '/api/login')
     })
     .catch(function (err) {
+      console.log(err)
       res.status(401).json(err.errors)
     })
 })

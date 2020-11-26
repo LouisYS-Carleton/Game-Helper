@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   const searchButton = document.getElementById('search-form')
   searchButton.addEventListener('submit', searchGame)
+  
 
   const introButton = document.getElementById('intro-btn')
   if (introButton) {
