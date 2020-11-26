@@ -1,7 +1,8 @@
 const db = require('../models')
 const router = require('express').Router()
+const isAuthenticate = require('../config/middleware/isAuthenticate')
 
-router.post('/:gameId', async function (req, res) {
+router.post('/:gameId', isAuthenticate, async function (req, res) {
   try {
     const gameId = req.params.gameId
     const { imageUrls } = req.body
