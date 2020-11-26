@@ -1,7 +1,8 @@
 const db = require('../models')
 const router = require('express').Router()
+const isAuthenticate = require('../config/middleware/isAuthenticate')
 
-router.get('/', function (req, res) {
+router.get('/', isAuthenticate, function (req, res) {
   db.Game.findAll({
     include: db.Image,
   })
@@ -13,7 +14,7 @@ router.get('/', function (req, res) {
     })
 })
 
-router.post('/', async function (req, res) {
+router.post('/', isAuthenticate, async function (req, res) {
   try {
     const {
       apiId,
@@ -39,7 +40,7 @@ router.post('/', async function (req, res) {
   }
 })
 
-router.delete('/:id', async function (req, res) {
+router.delete('/:id', isAuthenticate, async function (req, res) {
   try {
     const game = await db.Game.findByPk(req.params.id, {
       include: db.Image,
