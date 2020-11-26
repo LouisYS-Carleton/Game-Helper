@@ -22,6 +22,7 @@ router.get('/', isAuthenticate, async function (req, res) {
       currentGames,
       upcomingGames,
       ownedGames: formatOwnedGames(ownedGames),
+      userEmail: req.user.email,
     })
   } catch (err) {
     console.log(err)
