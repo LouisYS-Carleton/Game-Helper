@@ -1,39 +1,73 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-<h1>{{title}}</h1>
+  #login {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    position: absolute;
+    padding: 60px;
+    margin: 10px;
+    text-align: center;
+    width: 450px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-<div class="container-fluid">
-  <div class="row no-gutter">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome to Good Game!</h3>
-              <form id="login">
-                <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="inputEmail">Email address</label>
-                </div>
+  p {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  padding: 100px;
+  color: white;
+  list-style: none;
+}
 
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
-                </div>
+.form-label-group {
+    position: relative;
+    margin-bottom: 3rem;
+}
 
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Remember password</label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
-                <div class="text-center">
-                  <a class="small" href="#">Forgot password?</a></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+.form-label-group>input,
+  .form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    height: auto;
+    border-radius: 1rem;
+}
+
+.form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    color: #495057;
+    border: 1px solid transparent;
+}
+
+</style>
+<p>Welcome back User! <strong>Login here</strong></p>
+<form id="login" style="background-image: url('https://img.freepik.com/free-photo/gray-gradient-abstract-background_9635-2358.jpg?size=626&ext=jpg');">
+  <div class="form-label-group">
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmail"></label>
   </div>
-</div>
+  <div class="form-label-group">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="inputPassword"></label>
+  </div>
+  <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" id="customCheck1">
+    <label class="custom-control-label" for="customCheck1">Remember password</label>
+  </div>
+  <button class="btn btn-lg btn btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Login</button>
+  <div class="text-center">
+    <a class="small" href="#">Forgot password?</a>
+  </div>
+</form>
 <script src="/login.js"></script>
