@@ -29,7 +29,7 @@
 <body>
   <div class="container" style="max-width: 3000px !important;">
     <header>
-      <div class="col-md-10">
+      <div class="col">
         <div class="row">
           <a href='/'>
             <h2 class="logo">GG</h2>
@@ -39,9 +39,9 @@
         </div>
       </div>
 
-      <div class="col-md-2" class='search-bar-col'>
+      <div class="col-auto" class='search-bar-col'>
         <div>
-          <form class="form-inline" id="search-form"
+          <form class="form-inline d-inline-block" id="search-form" 
             data-intro='Welcome to Good Games! Simply search for the name of your favorite video game to get started.'
             data-step='1'>>
             <div class="input-group">
@@ -54,6 +54,7 @@
               </div>
             </div>
           </form>
+          <a id="logout" href="/logout" class="btn btn-secondary">Logout</a>
         </div>
       </div>
     </header>
