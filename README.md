@@ -52,6 +52,8 @@
 
 Good Games is an app made for gamers, by gamers. It was created to help video game enthusiasts keep track of their current game collection, view upcoming games, and even search game titles.
 
+<img src="./public/images/README_result.png" alt="Good Games">
+
 `LouisYS-Carleton`,`angelicamapeso` , `NatallieMbayo`, `Game-Helper`, `LouisYSCarleton@gmail.com`, `GOOD GAMES`
 
 ### Built With
