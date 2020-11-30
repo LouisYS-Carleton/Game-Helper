@@ -50,6 +50,8 @@
 
 <img src="./public/images/README.png" alt="Good Games">
 
+:link: [Go to Good Games](https://game-helper.herokuapp.com/)
+
 Good Games is an app made for gamers, by gamers. It was created to help video game enthusiasts keep track of their current game collection, view upcoming games, and even search game titles.
 
 <img src="./public/images/README_result.png" alt="Good Games">
