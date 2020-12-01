@@ -79,6 +79,10 @@ Good Games is an app made for gamers, by gamers. It was created to help video ga
   - [Passport-local](http://www.passportjs.org/packages/passport-local/)
 - [Moment.js](https://momentjs.com/)
 
+#### API
+
+- [Gamespot API](https://www.gamespot.com/api/documentation)
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
