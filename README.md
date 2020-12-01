@@ -58,11 +58,26 @@ Good Games is an app made for gamers, by gamers. It was created to help video ga
 
 `LouisYS-Carleton`,`angelicamapeso` , `NatallieMbayo`, `Game-Helper`, `LouisYSCarleton@gmail.com`, `GOOD GAMES`
 
+<!-- BUILT WITH -->
+
 ### Built With
 
-- Github
-- Slack
-- VS Code
+#### Front-end
+
+- [Intro.js](https://introjs.com/)
+- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
+- [Bootstrap](https://getbootstrap.com/)
+
+#### Back-end
+
+- [Axios](https://www.npmjs.com/package/axios)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Express](https://expressjs.com/)
+  - [Express-session](https://www.npmjs.com/package/express-session)
+- [Sequelize](https://sequelize.org/master/)
+- [Passport](http://www.passportjs.org/)
+  - [Passport-local](http://www.passportjs.org/packages/passport-local/)
+- [Moment.js](https://momentjs.com/)
 
 <!-- GETTING STARTED -->
 
@@ -118,27 +133,6 @@ If you wish to contribute to our project please use the instructions below. Any 
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-<!-- BUILT WITH -->
-
-## Built With
-
-### Front-end
-
-- [Intro.js](https://introjs.com/)
-- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
-- [Bootstrap](https://getbootstrap.com/)
-
-### Back-end
-
-- [Axios](https://www.npmjs.com/package/axios)
-- [Bcrypt](https://www.npmjs.com/package/bcrypt)
-- [Express](https://expressjs.com/)
-  - [Express-session](https://www.npmjs.com/package/express-session)
-- [Sequelize](https://sequelize.org/master/)
-- [Passport](http://www.passportjs.org/)
-  - [Passport-local](http://www.passportjs.org/packages/passport-local/)
-- [Moment.js](https://momentjs.com/)
 
 <!-- LICENSE -->
 
