@@ -4,6 +4,7 @@ const db = require('./models')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+const compression = require('compression')
 
 const PORT = process.env.PORT || 3000
 const app = express()
@@ -21,6 +22,8 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(compression())
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
